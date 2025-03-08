@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -311,9 +311,9 @@
 		726F2CE81BC9C48F001971A4 /* SUConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 61299A5F09CA6EB100B7442F /* SUConstants.m */; };
 		726F2CE91BC9C499001971A4 /* SUOperatingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 726F2CE41BC9C33D001971A4 /* SUOperatingSystem.m */; };
 		726F2CEB1BC9C733001971A4 /* SUConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 61299A5F09CA6EB100B7442F /* SUConstants.m */; };
-		727DBAE526B5BBFD00111F0C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 727DBAE426B5BBFD00111F0C /* ArgumentParser */; };
-		727DBAE726B5C47800111F0C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 727DBAE626B5C47800111F0C /* ArgumentParser */; };
-		727DBAE926B5C48A00111F0C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 727DBAE826B5C48A00111F0C /* ArgumentParser */; };
+		727DBAE526B5BBFD00111F0C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		727DBAE726B5C47800111F0C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		727DBAE926B5C48A00111F0C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		727F340B2605321D00020E85 /* SULog+NSError.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F340A2605321D00020E85 /* SULog+NSError.m */; };
 		727F340D2605321D00020E85 /* SULog+NSError.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F340A2605321D00020E85 /* SULog+NSError.m */; };
 		727F340E2605321D00020E85 /* SULog+NSError.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F340A2605321D00020E85 /* SULog+NSError.m */; };
@@ -1423,7 +1423,7 @@
 				EA1E285622B6619B004AA304 /* libed25519.a in Frameworks */,
 				EA1E281A22B645F4004AA304 /* libbsdiff.a in Frameworks */,
 				7205C4641E1306BE00E370AE /* libbz2.tbd in Frameworks */,
-				727DBAE526B5BBFD00111F0C /* ArgumentParser in Frameworks */,
+				727DBAE526B5BBFD00111F0C /* (null) in Frameworks */,
 				7205C4631E1306B500E370AE /* libxar.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1522,7 +1522,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				727DBAE726B5C47800111F0C /* ArgumentParser in Frameworks */,
+				727DBAE726B5C47800111F0C /* (null) in Frameworks */,
 				EA1E286A22B6653D004AA304 /* libed25519.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1531,7 +1531,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				727DBAE926B5C48A00111F0C /* ArgumentParser in Frameworks */,
+				727DBAE926B5C48A00111F0C /* (null) in Frameworks */,
 				EA1E287E22B66705004AA304 /* libed25519.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2534,9 +2534,6 @@
 			dependencies = (
 			);
 			name = generate_appcast;
-			packageProductDependencies = (
-				727DBAE426B5BBFD00111F0C /* ArgumentParser */,
-			);
 			productName = generate_appcast;
 			productReference = 7205C43E1E13049400E370AE /* generate_appcast */;
 			productType = "com.apple.product-type.tool";
@@ -2774,9 +2771,6 @@
 			dependencies = (
 			);
 			name = generate_keys;
-			packageProductDependencies = (
-				727DBAE626B5C47800111F0C /* ArgumentParser */,
-			);
 			productName = generate_keys;
 			productReference = EA1E285E22B66487004AA304 /* generate_keys */;
 			productType = "com.apple.product-type.tool";
@@ -2794,9 +2788,6 @@
 			dependencies = (
 			);
 			name = sign_update;
-			packageProductDependencies = (
-				727DBAE826B5C48A00111F0C /* ArgumentParser */,
-			);
 			productName = sign_update;
 			productReference = EA1E287622B666EB004AA304 /* sign_update */;
 			productType = "com.apple.product-type.tool";
@@ -2885,7 +2876,7 @@
 				};
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Sparkle" */;
-			compatibilityVersion = "Xcode 6.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -2936,9 +2927,6 @@
 				fa,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* Sparkle */;
-			packageReferences = (
-				727DBAE326B5BBFD00111F0C /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
-			);
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -3099,13 +3087,9 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 			);
 			name = "Strip XPC Services";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3117,13 +3101,9 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 			);
 			name = "Run Script: Link Tools";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3135,11 +3115,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -4531,35 +4507,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		727DBAE326B5BBFD00111F0C /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.4.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		727DBAE426B5BBFD00111F0C /* ArgumentParser */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 727DBAE326B5BBFD00111F0C /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
-			productName = ArgumentParser;
-		};
-		727DBAE626B5C47800111F0C /* ArgumentParser */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 727DBAE326B5BBFD00111F0C /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
-			productName = ArgumentParser;
-		};
-		727DBAE826B5C48A00111F0C /* ArgumentParser */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 727DBAE326B5BBFD00111F0C /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
-			productName = ArgumentParser;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
 }
