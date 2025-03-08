@@ -56,7 +56,7 @@
     task.standardError = nil;
     task.standardOutput = nil;
     
-    if (@available(macOS 10.13, *)) {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101300
         NSError *launchError = nil;
         if (![task launchAndReturnError:&launchError]) {
             if (error != NULL) {
@@ -70,7 +70,7 @@
             }
             return NO;
         }
-    } else {
+#else
         @try {
             [task launch];
         } @catch (NSException *) {
@@ -80,8 +80,7 @@
             
             return NO;
         }
-    }
-    
+#endif
     [task waitUntilExit];
     
     if (task.terminationStatus != EXIT_SUCCESS) {

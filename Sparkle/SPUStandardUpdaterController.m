@@ -21,7 +21,7 @@
 // because we want them to be connectable outlets from Interface Builder, but we do not want their setters to be invoked
 // programmatically.
 
-@interface SPUStandardUpdaterController () <NSMenuItemValidation>
+@interface SPUStandardUpdaterController ()
 
 @property (nonatomic) SPUUpdater *updater;
 @property (nonatomic) id<SPUUserDriver> userDriver;

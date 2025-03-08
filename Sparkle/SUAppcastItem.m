@@ -299,7 +299,7 @@ static NSString *SUAppcastItemStateKey = @"SUAppcastItemState";
     static SUAppcastItem *emptyAppcastItem;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        emptyAppcastItem = [[SUAppcastItem alloc] init];
+        emptyAppcastItem = [SUAppcastItem alloc];
     });
     return emptyAppcastItem;
 }

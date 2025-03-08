@@ -200,7 +200,7 @@
     // First try swapping the application atomically
     NSError *swapError = nil;
     BOOL swappedApp;
-    if (@available(macOS 10.13, *)) {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101300
         // If the app is normalized and the installation path differs, go through the old swap path
         if (SPARKLE_NORMALIZE_INSTALLED_APPLICATION_NAME && ![oldURL.path isEqual:installationURL.path]) {
             swappedApp = NO;
@@ -209,10 +209,9 @@
             // We don't want to clean it up now because it can take some time
             swappedApp = [fileManager swapItemAtURL:installationURL withItemAtURL:newTempURL error:&swapError];
         }
-    } else {
-        swappedApp = NO;
-    }
-    
+#else
+    swappedApp = NO;
+#endif
     if (!swappedApp) {
         // Otherwise swap out the old and new applications using the legacy path
         

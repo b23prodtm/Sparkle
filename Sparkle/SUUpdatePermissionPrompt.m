@@ -118,7 +118,7 @@ static NSString *const SUUpdatePermissionPromptTouchBarIndentifier = @"" SPARKLE
     
     static const CGFloat TOGGLE_INFO_ANIMATION_DURATION = 0.2;
     
-    BOOL disclosingInfo = (self.anonymousInfoDisclosureButton.state == NSControlStateValueOn);
+    BOOL disclosingInfo = (self.anonymousInfoDisclosureButton.state == NSOnState);
     
     if (disclosingInfo) {
         self.placeholderHeightLayoutConstraint.constant = 0.0;

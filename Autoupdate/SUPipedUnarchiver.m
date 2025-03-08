@@ -119,12 +119,12 @@
         [task setArguments:[args arrayByAddingObject:destination]];
         
         NSError *launchError = nil;
-        if (@available(macOS 10.13, *)) {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101300
             if (![task launchAndReturnError:&launchError]) {
                 [notifier notifyFailureWithError:launchError];
                 return;
             }
-        } else {
+#else
             @try {
                 [task launch];
             } @catch (NSException *e) {
@@ -132,21 +132,13 @@
                 [notifier notifyFailureWithError:error];
                 return;
             }
-        }
-        
+#endif
         NSFileHandle *archiveOutput = [pipe fileHandleForWriting];
         NSUInteger bytesWritten = 0;
         
-        BOOL hasIOErrorMethods;
-        if (@available(macOS 10.15, *)) {
-            hasIOErrorMethods = YES;
-        } else {
-            hasIOErrorMethods = NO;
-        }
-        
         do {
             NSData *data;
-            if (hasIOErrorMethods) {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101500
                 NSError *readError = nil;
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpartial-availability"
@@ -155,14 +147,14 @@
                 if (data == nil) {
                     SULog(SULogLevelError, @"Failed to read data from archive with error %@", readError);
                 }
-            } else {
+#else
                 @try {
                     data = [archiveInput readDataOfLength:256*1024];
                 } @catch (NSException *exception) {
                     SULog(SULogLevelError, @"Failed to read data from archive with exception reason %@", exception.reason);
                     data = nil;
                 }
-            }
+#endif
             
             NSUInteger len = [data length];
             if (len == 0) {
@@ -170,7 +162,7 @@
             }
             
             NSError *writeError = nil;
-            if (hasIOErrorMethods) {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101500
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpartial-availability"
                 if (![archiveOutput writeData:data error:&writeError]) {
@@ -178,14 +170,14 @@
                     SULog(SULogLevelError, @"Failed to write data to pipe with error %@", writeError);
                     break;
                 }
-            } else {
+#else
                 @try {
                     [archiveOutput writeData:data];
                 } @catch (NSException *exception) {
                     SULog(SULogLevelError, @"Failed to write data to pipe with exception reason %@", exception.reason);
                     break;
                 }
-            }
+#endif
             
             bytesWritten += len;
             
@@ -193,24 +185,22 @@
         }
         while(bytesWritten < expectedLength);
         
-        if (@available(macOS 10.15, *)) {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101500
             NSError *archiveOutputCloseError = nil;
             if (![archiveOutput closeAndReturnError:&archiveOutputCloseError]) {
                 SULog(SULogLevelError, @"Failed to close pipe with error %@", archiveOutputCloseError);
             }
-        } else {
-            [archiveOutput closeFile];
-        }
-        
-        if (@available(macOS 10.15, *)) {
+#else
+        [archiveOutput closeFile];
+#endif
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101500
             NSError *archiveInputCloseError = nil;
             if (![archiveInput closeAndReturnError:&archiveInputCloseError]) {
                 SULog(SULogLevelError, @"Failed to close archive input with error %@", archiveInputCloseError);
             }
-        } else {
-            [archiveInput closeFile];
-        }
-        
+#else
+        [archiveInput closeFile];
+#endif
         [task waitUntilExit];
         
         if ([task terminationStatus] != 0) {

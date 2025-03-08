@@ -100,7 +100,7 @@ NSString *const SUSystemProfilerPreferredLanguageKey = @"lang";
             }
         } else if (cpuType == CPU_TYPE_ARM) {
             switch (value) {
-                case CPU_SUBTYPE_ARM64E:    visibleCPUSubType=@"ARM64E";  break;
+                case CPU_SUBTYPE_ARM64_ALL:    visibleCPUSubType=@"ARM64";  break;
                 default:                    visibleCPUSubType = @"Other"; break;
             }
         } else {

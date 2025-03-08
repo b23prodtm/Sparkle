@@ -128,34 +128,32 @@
                 dispatch_semaphore_signal(terminationSemaphore);
             };
             
-            if (@available(macOS 10.13, *)) {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101300
                 if (![task launchAndReturnError:&error]) {
                     goto reportError;
                 }
-            } else {
+#else
                 @try {
                     [task launch];
                 } @catch (NSException *) {
                     goto reportError;
                 }
-            }
-            
+#endif
             [notifier notifyProgress:0.125];
 
             [inputPipe.fileHandleForWriting writeData:promptData];
             
-            if (@available(macOS 10.15, *)) {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101500
                 if (![inputPipe.fileHandleForWriting writeData:promptData error:&error]) {
                     goto reportError;
                 }
-            } else {
+#else
                 @try {
                     [inputPipe.fileHandleForWriting writeData:promptData];
                 } @catch (NSException *) {
                     goto reportError;
                 }
-            }
-            
+#endif
             [inputPipe.fileHandleForWriting closeFile];
             
             dispatch_semaphore_wait(terminationSemaphore, DISPATCH_TIME_FOREVER);
@@ -222,20 +220,20 @@
             task.standardError = [NSPipe pipe];
             
             
-            if (@available(macOS 10.13, *)) {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101300
                 NSError *launchCleanupError = nil;
                 if (![task launchAndReturnError:&launchCleanupError]) {
                     SULog(SULogLevelError, @"Failed to unmount %@", mountPoint);
                     SULog(SULogLevelError, @"Error: %@", launchCleanupError);
                 }
-            } else {
+#else
                 @try {
                     [task launch];
                 } @catch (NSException *exception) {
                     SULog(SULogLevelError, @"Failed to unmount %@", mountPoint);
                     SULog(SULogLevelError, @"Exception: %@", exception);
                 }
-            }
+#endif
         } else {
             SULog(SULogLevelError, @"Can't mount DMG %@", self.archivePath);
         }

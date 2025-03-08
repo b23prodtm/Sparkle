@@ -128,15 +128,15 @@ static WKUserScript *_userScriptWithInjectedStyleSource(NSString *styleSource)
         // Unfortunately we have to rely on a private API
         // FB7539179: https://github.com/feedback-assistant/reports/issues/81 | https://bugs.webkit.org/show_bug.cgi?id=155550
         // But it seems like others are already relying on it, passed App Review, and apps couldn't be broken due to compatibility
-        if (@available(macOS 10.12, *)) {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101200
             if ([self.webView respondsToSelector:@selector(_setDrawsBackground:)]) {
                 [self.webView _setDrawsBackground:drawsBackground];
             }
-        } else {
+#else
             if ([self.webView respondsToSelector:@selector(_setDrawsTransparentBackground:)]) {
                 [self.webView _setDrawsTransparentBackground:!drawsBackground];
             }
-        }
+#endif
         
         self.drawsWebViewBackground = drawsBackground;
     }
