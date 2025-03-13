@@ -3875,6 +3875,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941CA0D94A70100DD942E /* ConfigFrameworkDebug.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_VERSION = A;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Coverage;
@@ -3917,6 +3918,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941CA0D94A70100DD942E /* ConfigFrameworkDebug.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_VERSION = A;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -3925,6 +3927,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1941D10D94A70100DD942E /* ConfigFramework.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_VERSION = A;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

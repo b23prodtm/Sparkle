@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402" : 9223372036854775807,
+    "13811C548DDF1B6866B16DDDA04263527F58A06E" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D799E9DB-1999-4369-BD8F-40B1609BA369",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402" : "Sparkle\/",
+    "13811C548DDF1B6866B16DDDA04263527F58A06E" : "Sparkle\/Vendor\/ed25519\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Sparkle",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Sparkle.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/orlp\/ed25519",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "13811C548DDF1B6866B16DDDA04263527F58A06E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:b23prodtm\/Sparkle.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402"
+    }
+  ]
+}
